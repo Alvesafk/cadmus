@@ -1,0 +1,31 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="pt-br" class="dark">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Cadmus Tracker</title>
+		{% tailwind_css %}
+	</head>
+	<body>
+		<main>
+			<div>
+				<form method="POST" action="{% url 'login' %}">
+					{% csrf_token %}
+
+					<div>
+						<label for="username-input">Nome de usuário.</label>
+						<input class="border" type="username" name="username-input" placeholder="Entre com seu nome de usuário." required>
+					</div>
+					<div>
+						<label for="password-input">Senha.</label>
+						<input class="border" type="password" name="password-input" placeholder="Entre com sua senha." required>
+					</div>
+					<div>
+						<button class="border" type="submit" name="action" value="login">Entrar</button>
+					</div>
+				</form>
+			</div>
+		</main>
+	</body>
+</html>
